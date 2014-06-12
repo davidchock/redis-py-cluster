@@ -292,6 +292,11 @@ class RedisCluster(object):
     def hexists(self, key, field):
         return self.send_cluster_command("HEXISTS", key, field)
 
+    def llen(self, key):
+        return self.send_cluster_command("LLEN", key)
+
+    def lrange(self, key, index1, index2):
+        return self.send_cluster_command("LRANGE", key, index1, index2)
     def type(self, key):
         return self.send_cluster_command("TYPE", key)
 
@@ -303,3 +308,4 @@ class RedisCluster(object):
 
     def renamex(self, key1, key2):
         raise Exception("MULTI KEY requests NOT SUPPORTED")
+
