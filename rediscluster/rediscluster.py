@@ -312,4 +312,4 @@ class RedisCluster(object):
     def zcard(self, key):
         return self.send_cluster_command("ZCARD", key)
     def zrange(self, key, index1, index2):
-        return self.send_cluster_command("ZRANGE", key, index1, index2)
+        return self.send_cluster_command("ZRANGE", key, index1, index2, withscore= False )
