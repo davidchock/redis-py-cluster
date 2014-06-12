@@ -309,3 +309,5 @@ class RedisCluster(object):
     def renamex(self, key1, key2):
         raise Exception("MULTI KEY requests NOT SUPPORTED")
 
+    def zcard(self, key):
+        return self.send_cluster_command("ZCARD", key)
